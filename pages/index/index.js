@@ -4,48 +4,71 @@ const app = getApp()
 
 Page({
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3']
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    banner: [
+      {
+        id:1,
+        url:"https://s3.cdn.xiangha.com/caipu/201707/031210164843.jpg/MHgw"
+      },{
+        id:2,
+        url:"https://s3.cdn.xiangha.com/caipu/201707/031455386879.jpg/MHgw"
+      },{
+        id:3,
+        url:"https://s3.cdn.xiangha.com/caipu/201707/031210164843.jpg/MHgw"
+      }
+    ],
+    menu:[
+      {
+        title:'最新',
+        id:'one'
+      },{
+        title: '最热',
+        id:'two'
+      }
+    ],
+    list:[
+      {
+        id:1,
+        src:'https://s3.cdn.xiangha.com/caipu/201510/2415/241543531753.jpg/MjUweDI1MA.webp',
+        title:"爱心早餐",
+        number:156,
+        readed:123,
+        collected:666
+      },
+      {
+        id: 2,
+        src: 'https://s3.cdn.xiangha.com/caipu/201509/2519/25191649314.jpg/MjUweDI1MA.webp',
+        title: "健康夜宵",
+        number:263,
+        readed: 13,
+        collected: 76
+      },
+      {
+        id: 3,
+        src: 'https://s3.cdn.xiangha.com/caipu/201604/1916/191710549245.jpg/MjUweDI1MA.webp',
+        title: "每日甜点",
+        number: 268,
+        readed: 123,
+        collected: 666
+      },
+      {
+        id: 4,
+        src: 'https://s3.cdn.xiangha.com/caipu/201805/0411/041102264562.jpg/MTYweDEyMA',
+        title: "营养午餐",
+        number: 268,
+        readed: 123,
+        collected: 666
+      },
+      {
+        id: 5,
+        src: 'https://s3.cdn.xiangha.com/videoImg/201509/0721/55ed949bcb4da.JPG/MjUweDI1MA.webp',
+        title: "老火靓汤",
+        number: 27,
+        readed: 123,
+        collected: 666
+      }
+    ]
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    
   }
 })
